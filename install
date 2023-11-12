@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="master"
+version="1.0.0"
 
 download_url="https://github.com/ahmetbarut/paste-cli/raw/$version/paste-cli"
 
