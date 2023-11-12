@@ -1,0 +1,33 @@
+#!/bin/bash
+
+version="master"
+
+download_url="https://github.com/ahmetbarut/paste-cli/raw/$version/paste-cli"
+
+temp_dir=$(mktemp -d)
+
+wget -q -O "$temp_dir/paste-cli" "$download_url"
+
+chmod +x "$temp_dir/paste-cli"
+
+# check os
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sudo mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    sudo mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+    mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+elif [[ "$OSTYPE" == "msys" ]]; then
+    mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+elif [[ "$OSTYPE" == "win32" ]]; then
+    mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+    sudo mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+else
+    echo "Unknown OS"
+fi
+
+rm -rf "$temp_dir"
+
+echo "paste-cli installed successfully"
+
