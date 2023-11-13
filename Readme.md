@@ -8,7 +8,7 @@ curl -s https://raw.githubusercontent.com/ahmetbarut/paste-cli/master/install | 
 
 ## Usage
 ```bash
-paste -c "Hello World"
+paste-cli -c "Hello World"
 ```
 
 ## License
