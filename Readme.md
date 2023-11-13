@@ -13,3 +13,6 @@ paste -c "Hello World"
 
 ## License
 [MIT](./LICENSE)
+
+## Changelog
+[Changelog](./CHANGELOG.md)
