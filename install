@@ -6,7 +6,7 @@ download_url="https://github.com/ahmetbarut/paste-cli/raw/$version/paste-cli"
 
 temp_dir=$(mktemp -d)
 
-target="$HOME/.local/bin/paste-cli"
+target_path="$HOME/.local/bin"
 
 wget -q -O "$temp_dir/paste-cli" "$download_url"
 
@@ -15,10 +15,10 @@ chmod +x "$temp_dir/paste-cli"
 
 # check if paste-cli installed
 if [ -x "$(command -v paste-cli)" ]; then
-    rm -rf $target
+  rm -rf "$target_path/paste-cli"
 fi
 
-mv "$temp_dir/paste-cli" $target
+mv "$temp_dir/paste-cli" "$target_path/paste-cli"
 
 rm -rf "$temp_dir/paste-cli"
 
