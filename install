@@ -6,32 +6,20 @@ download_url="https://github.com/ahmetbarut/paste-cli/raw/$version/paste-cli"
 
 temp_dir=$(mktemp -d)
 
+target=$($HOME/.local/bin/paste-cli)
+
 wget -q -O "$temp_dir/paste-cli" "$download_url"
 
 chmod +x "$temp_dir/paste-cli"
 
-# check if sudo is installed
-if ! [ -x "$(command -v sudo)" ]; then
-  echo "sudo is not installed, installing sudo"
-  exit 1
-fi
-
-# check if curl is installed
-if ! [ -x "$(command -v curl)" ]; then
-  echo "curl is not installed, installing curl"
-  sudo apt-get install curl
-fi
-
-installed = "installed"
 
 # check if paste-cli installed
 if [ -x "$(command -v paste-cli)" ]; then
-    installed = "updated"
-    sudo rm -rf "/usr/local/bin/paste-cli"
+    rm -rf $target
 fi
 
-sudo mv "$temp_dir/paste-cli" "/usr/local/bin/paste-cli"
+mv "$temp_dir/paste-cli" $target
 
-rm -rf "$temp_dir"
+rm -rf "$temp_dir/paste-cli"
 
-echo "paste-cli $installed successfully"
+echo "paste-cli installed successfully"
