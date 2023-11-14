@@ -6,7 +6,7 @@ download_url="https://github.com/ahmetbarut/paste-cli/raw/$version/paste-cli"
 
 temp_dir=$(mktemp -d)
 
-target=$($HOME/.local/bin/paste-cli)
+target=$HOME/.local/bin/paste-cli
 
 wget -q -O "$temp_dir/paste-cli" "$download_url"
 
